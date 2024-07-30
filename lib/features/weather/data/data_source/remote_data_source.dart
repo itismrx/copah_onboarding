@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:coopah_onboarding/core/constants/constants.dart';
 import 'package:coopah_onboarding/core/errors/errors.dart';
-import 'package:coopah_onboarding/core/errors/failure.dart';
 import 'package:coopah_onboarding/features/weather/data/models/weather.dart';
 import "package:http/http.dart" as http;
 
