@@ -1,3 +1,4 @@
+import 'package:coopah_onboarding/config/theme/theme.dart';
 import 'package:coopah_onboarding/core/configuration/dep_injection.dart';
 import 'package:coopah_onboarding/features/weather/presentation/bloc/weather_bloc.dart';
 import 'package:coopah_onboarding/features/weather/presentation/screens/home_page.dart';
@@ -17,10 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
+        theme: appTheme,
         home: MultiBlocProvider(
           providers: [
             BlocProvider(
