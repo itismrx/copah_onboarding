@@ -1,16 +1,65 @@
-# coopah_onboarding
+# Weather App
 
-A new Flutter project.
+This project is a Flutter application that fetches weather data from the OpenWeatherMap API and displays the temperature and location name on the screen, following the provided Figma design.
+
+## Features
+
+- Clean architecture using the Bloc (Business Logic Component) pattern
+- Responsive image handling based on screen size
+- Unit tests for key functions in the Bloc, Repository, and DataSource layers
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Prerequisites
 
-A few resources to get you started if this is your first Flutter project:
+- Flutter SDK (version 3.22.2)
+- Dart SDK (version 3.4.3)
+- An API key from OpenWeatherMap (you can sign up for a free account to get one)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Installation
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Clone the repository:
+
+```
+git clone https://github.com/itismrx/copah_onboarding.git
+```
+
+2. Navigate to the project directory:
+
+```
+cd copah_onboarding
+```
+
+3. Install the dependencies:
+
+```
+flutter pub get
+```
+
+4. Replace the `{API key}` placeholder in the `.env` file at the root folder with your actual OpenWeatherMap API key.
+
+5. Run the app:
+
+```
+flutter run
+```
+
+### Testing
+
+To run the unit tests:
+
+```
+flutter test
+```
+
+## Architecture
+
+This project follows the Clean Architecture principles, with the following layers:
+
+1. **Presentation Layer**: Responsible for the UI and user interactions. In this project, it includes the `WeatherScreen` and the Bloc (`WeatherBloc`).
+
+2. **Domain Layer**: Encapsulates the business logic and use cases. In this project, it includes the `WeatherRepository` interface.
+
+3. **Data Layer**: Responsible for data retrieval and manipulation. In this project, it includes the `WeatherRepositoryImpl` and `WeatherDataSource`.
+
+The use of the Bloc pattern and the separation of concerns in the architecture ensure that the code is maintainable, testable, and scalable.
