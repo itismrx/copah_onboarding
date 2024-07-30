@@ -1,3 +1,4 @@
+import 'package:coopah_onboarding/core/constants/constants.dart';
 import 'package:coopah_onboarding/core/errors/failure.dart';
 import 'package:coopah_onboarding/features/weather/domain/entities/weather.dart';
 import 'package:coopah_onboarding/features/weather/domain/repository/weather_repository.dart';
@@ -7,6 +8,7 @@ class GetCurrentWeatherUseCase {
   final WeatherRepository weatherRepository;
   GetCurrentWeatherUseCase(this.weatherRepository);
 
-  Future<Either<Failure, WeatherEntity>> execute(String lat, String lng) =>
-      weatherRepository.getCurrentWeather(lat, lng);
+  Future<Either<Failure, WeatherEntity>> execute(
+          String lat, String lng, TempUnit unit) =>
+      weatherRepository.getCurrentWeather(lat, lng, unit);
 }

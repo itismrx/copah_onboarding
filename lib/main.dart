@@ -1,5 +1,6 @@
 import 'package:coopah_onboarding/config/theme/theme.dart';
 import 'package:coopah_onboarding/core/configuration/dep_injection.dart';
+import 'package:coopah_onboarding/features/weather/presentation/bloc/cubit/temp_unit_cubit.dart';
 import 'package:coopah_onboarding/features/weather/presentation/bloc/weather_bloc.dart';
 import 'package:coopah_onboarding/features/weather/presentation/screens/home_page.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,7 +22,11 @@ class MyApp extends StatelessWidget {
         home: MultiBlocProvider(
           providers: [
             BlocProvider(
-              create: (context) => serviceLocater<WeatherBloc>(),
+              create: (context) => serviceLocater<TempUnitCubit>(),
+            ),
+            BlocProvider(
+              create: (context) =>
+                  serviceLocater<WeatherBloc>()..add(const WeatherDataFetch()),
             ),
           ],
           child: const HomePage(),

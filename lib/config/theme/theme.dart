@@ -1,6 +1,7 @@
 import 'package:coopah_onboarding/core/constants/constants.dart';
 import 'package:flutter/material.dart';
 
+// Current app theme
 ThemeData appTheme = ThemeData(
   textTheme: appTextTheme,
   elevatedButtonTheme: ElevatedButtonThemeData(
@@ -15,6 +16,7 @@ ThemeData appTheme = ThemeData(
   ),
 );
 
+// App's text theme
 TextTheme appTextTheme = const TextTheme(
   headlineMedium: TextStyle(
       color: AppColors.blackColor,

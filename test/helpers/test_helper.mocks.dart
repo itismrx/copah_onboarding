@@ -4,12 +4,13 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i6;
-import 'dart:convert' as _i11;
-import 'dart:typed_data' as _i13;
+import 'dart:convert' as _i12;
+import 'dart:typed_data' as _i14;
 
+import 'package:coopah_onboarding/core/constants/constants.dart' as _i9;
 import 'package:coopah_onboarding/core/errors/failure.dart' as _i7;
 import 'package:coopah_onboarding/features/weather/data/data_source/remote_data_source.dart'
-    as _i9;
+    as _i10;
 import 'package:coopah_onboarding/features/weather/data/models/weather.dart'
     as _i3;
 import 'package:coopah_onboarding/features/weather/domain/entities/weather.dart'
@@ -17,11 +18,11 @@ import 'package:coopah_onboarding/features/weather/domain/entities/weather.dart'
 import 'package:coopah_onboarding/features/weather/domain/repository/weather_repository.dart'
     as _i4;
 import 'package:coopah_onboarding/features/weather/domain/usecases/get_current_weather.dart'
-    as _i10;
+    as _i11;
 import 'package:dartz/dartz.dart' as _i2;
 import 'package:http/http.dart' as _i5;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:mockito/src/dummies.dart' as _i12;
+import 'package:mockito/src/dummies.dart' as _i13;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -100,6 +101,7 @@ class MockWeatherRepository extends _i1.Mock implements _i4.WeatherRepository {
   _i6.Future<_i2.Either<_i7.Failure, _i8.WeatherEntity>> getCurrentWeather(
     String? lat,
     String? lng,
+    _i9.TempUnit? unit,
   ) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -107,6 +109,7 @@ class MockWeatherRepository extends _i1.Mock implements _i4.WeatherRepository {
           [
             lat,
             lng,
+            unit,
           ],
         ),
         returnValue:
@@ -118,6 +121,7 @@ class MockWeatherRepository extends _i1.Mock implements _i4.WeatherRepository {
             [
               lat,
               lng,
+              unit,
             ],
           ),
         )),
@@ -128,7 +132,7 @@ class MockWeatherRepository extends _i1.Mock implements _i4.WeatherRepository {
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockWeatherRemoteDataSource extends _i1.Mock
-    implements _i9.WeatherRemoteDataSource {
+    implements _i10.WeatherRemoteDataSource {
   MockWeatherRemoteDataSource() {
     _i1.throwOnMissingStub(this);
   }
@@ -137,6 +141,7 @@ class MockWeatherRemoteDataSource extends _i1.Mock
   _i6.Future<_i3.WeatherModel> getCurrentWeather(
     String? lat,
     String? lng,
+    _i9.TempUnit? unit,
   ) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -144,6 +149,7 @@ class MockWeatherRemoteDataSource extends _i1.Mock
           [
             lat,
             lng,
+            unit,
           ],
         ),
         returnValue: _i6.Future<_i3.WeatherModel>.value(_FakeWeatherModel_1(
@@ -153,6 +159,7 @@ class MockWeatherRemoteDataSource extends _i1.Mock
             [
               lat,
               lng,
+              unit,
             ],
           ),
         )),
@@ -163,7 +170,7 @@ class MockWeatherRemoteDataSource extends _i1.Mock
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockGetCurrentWeatherUseCase extends _i1.Mock
-    implements _i10.GetCurrentWeatherUseCase {
+    implements _i11.GetCurrentWeatherUseCase {
   MockGetCurrentWeatherUseCase() {
     _i1.throwOnMissingStub(this);
   }
@@ -181,6 +188,7 @@ class MockGetCurrentWeatherUseCase extends _i1.Mock
   _i6.Future<_i2.Either<_i7.Failure, _i8.WeatherEntity>> execute(
     String? lat,
     String? lng,
+    _i9.TempUnit? unit,
   ) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -188,6 +196,7 @@ class MockGetCurrentWeatherUseCase extends _i1.Mock
           [
             lat,
             lng,
+            unit,
           ],
         ),
         returnValue:
@@ -199,6 +208,7 @@ class MockGetCurrentWeatherUseCase extends _i1.Mock
             [
               lat,
               lng,
+              unit,
             ],
           ),
         )),
@@ -260,7 +270,7 @@ class MockHttpClient extends _i1.Mock implements _i5.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i11.Encoding? encoding,
+    _i12.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -291,7 +301,7 @@ class MockHttpClient extends _i1.Mock implements _i5.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i11.Encoding? encoding,
+    _i12.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -322,7 +332,7 @@ class MockHttpClient extends _i1.Mock implements _i5.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i11.Encoding? encoding,
+    _i12.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -353,7 +363,7 @@ class MockHttpClient extends _i1.Mock implements _i5.Client {
     Uri? url, {
     Map<String, String>? headers,
     Object? body,
-    _i11.Encoding? encoding,
+    _i12.Encoding? encoding,
   }) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -390,7 +400,7 @@ class MockHttpClient extends _i1.Mock implements _i5.Client {
           [url],
           {#headers: headers},
         ),
-        returnValue: _i6.Future<String>.value(_i12.dummyValue<String>(
+        returnValue: _i6.Future<String>.value(_i13.dummyValue<String>(
           this,
           Invocation.method(
             #read,
@@ -401,7 +411,7 @@ class MockHttpClient extends _i1.Mock implements _i5.Client {
       ) as _i6.Future<String>);
 
   @override
-  _i6.Future<_i13.Uint8List> readBytes(
+  _i6.Future<_i14.Uint8List> readBytes(
     Uri? url, {
     Map<String, String>? headers,
   }) =>
@@ -411,8 +421,8 @@ class MockHttpClient extends _i1.Mock implements _i5.Client {
           [url],
           {#headers: headers},
         ),
-        returnValue: _i6.Future<_i13.Uint8List>.value(_i13.Uint8List(0)),
-      ) as _i6.Future<_i13.Uint8List>);
+        returnValue: _i6.Future<_i14.Uint8List>.value(_i14.Uint8List(0)),
+      ) as _i6.Future<_i14.Uint8List>);
 
   @override
   _i6.Future<_i5.StreamedResponse> send(_i5.BaseRequest? request) =>

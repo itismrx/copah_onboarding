@@ -14,6 +14,7 @@ void main() {
   late WeatherRemoteDataSourceImpl weatherRemoteDataSourceImpl;
   const testDataPath = "test/helpers/test_data/test_weather_data.json";
   const String testLat = "51.51494225418024", testLng = "-0.12363193061883422";
+  const TempUnit unit = TempUnit.metric;
   setUp(() {
     mockHttpClient = MockHttpClient();
     weatherRemoteDataSourceImpl =
@@ -24,12 +25,12 @@ void main() {
       when(
         mockHttpClient.get(
           Uri.parse(
-            Urls.currentWeatherByGeoLocation(testLat, testLng),
+            Urls.currentWeatherByGeoLocation(testLat, testLng, unit),
           ),
         ),
       ).thenAnswer((_) async => http.Response(loadJson(testDataPath), 200));
-      final result =
-          await weatherRemoteDataSourceImpl.getCurrentWeather(testLat, testLng);
+      final result = await weatherRemoteDataSourceImpl.getCurrentWeather(
+          testLat, testLng, unit);
 
       expect(result, isA<WeatherModel>());
     });
@@ -39,14 +40,14 @@ void main() {
       when(
         mockHttpClient.get(
           Uri.parse(
-            Urls.currentWeatherByGeoLocation(testLat, testLng),
+            Urls.currentWeatherByGeoLocation(testLat, testLng, unit),
           ),
         ),
       ).thenAnswer(
         (_) async => http.Response("Data Not Found", 404),
       );
-      final result =
-          weatherRemoteDataSourceImpl.getCurrentWeather(testLat, "$testLng k");
+      final result = weatherRemoteDataSourceImpl.getCurrentWeather(
+          testLat, "$testLng k", unit);
 
       expect(result, throwsA(isA<ServerException>()));
     });

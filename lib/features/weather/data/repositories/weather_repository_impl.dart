@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:coopah_onboarding/core/constants/constants.dart';
 import 'package:coopah_onboarding/core/errors/errors.dart';
 import 'package:coopah_onboarding/core/errors/failure.dart';
 import 'package:coopah_onboarding/features/weather/data/data_source/remote_data_source.dart';
@@ -13,9 +14,10 @@ class WeatherRepositoryImpl implements WeatherRepository {
 
   @override
   Future<Either<Failure, WeatherEntity>> getCurrentWeather(
-      String lat, String lng) async {
+      String lat, String lng, TempUnit unit) async {
     try {
-      final result = await weatherRemoteDataSource.getCurrentWeather(lat, lng);
+      final result =
+          await weatherRemoteDataSource.getCurrentWeather(lat, lng, unit);
       return Right(result.toEntity());
     } on ServerException {
       return const Left(ServerFailure("Server error has occured"));
