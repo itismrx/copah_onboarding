@@ -1,5 +1,5 @@
 import 'package:coopah_onboarding/config/theme/theme.dart';
-import 'package:coopah_onboarding/core/configuration/dep_injection.dart';
+import 'package:coopah_onboarding/dep_injection.dart';
 import 'package:coopah_onboarding/features/weather/presentation/bloc/cubit/temp_unit_cubit.dart';
 import 'package:coopah_onboarding/features/weather/presentation/bloc/weather_bloc.dart';
 import 'package:coopah_onboarding/features/weather/presentation/screens/home_page.dart';
