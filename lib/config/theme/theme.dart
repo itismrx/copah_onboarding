@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 
 // Current app theme
 ThemeData appTheme = ThemeData(
+  primaryColor: AppColors.primary,
   textTheme: appTextTheme,
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
       backgroundColor: const WidgetStatePropertyAll(AppColors.primary),
+      foregroundColor: const WidgetStatePropertyAll(AppColors.whiteColor),
       textStyle:
           const WidgetStatePropertyAll(TextStyle(color: AppColors.whiteColor)),
       shape: WidgetStatePropertyAll(
@@ -31,11 +33,12 @@ TextTheme appTextTheme = const TextTheme(
   bodyMedium: TextStyle(
       fontFamily: "Circular Sid",
       fontSize: 18,
-      color: AppColors.whiteColor,
+      color: AppColors.blackColor,
       fontWeight: FontWeight.w500),
   bodyLarge: TextStyle(
     fontFamily: "Circular Sid",
     fontSize: 20,
+    color: AppColors.blackColor,
     fontWeight: FontWeight.w500,
   ),
 );

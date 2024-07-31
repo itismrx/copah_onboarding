@@ -122,7 +122,10 @@ class WeatherDisplayWidget extends StatelessWidget {
                   const WidgetStatePropertyAll(Size(double.maxFinite, 52))),
           child: Text(
             "Refresh",
-            style: Theme.of(context).textTheme.bodyMedium,
+            style: Theme.of(context)
+                .textTheme
+                .bodyMedium
+                ?.copyWith(color: AppColors.whiteColor),
           ),
         ))
       ],
