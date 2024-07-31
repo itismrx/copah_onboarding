@@ -36,9 +36,7 @@ cd copah_onboarding
 flutter pub get
 ```
 
-4. Create `.env` at ethe root folder and add the `{API key}` placeholder in file with your actual OpenWeatherMap API key.
-
-5. Run the app:
+4. Run the app:
 
 ```
 flutter run
