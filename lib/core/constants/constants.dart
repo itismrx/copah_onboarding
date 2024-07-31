@@ -1,10 +1,8 @@
 import 'dart:ui';
 
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-
 class Urls {
   static const String baseUrl = 'https://api.openweathermap.org/data/2.5';
-  static String apiKey = dotenv.env["API_KEY"] ?? "";
+  static String apiKey = "d39d56c77e53ff78e679b0861e2b1daa";
   static String getIconUrl(String iconCode) =>
       "https://openweathermap.org/img/wn/$iconCode@4x.png";
   static String currentWeatherByGeoLocation(
