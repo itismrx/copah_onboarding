@@ -1,4 +1,4 @@
-import 'package:coopah_onboarding/features/weather/presentation/widgets/gap.dart';
+import 'package:coopah_onboarding/features/weather/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class WeatherErrorWidget extends StatelessWidget {
@@ -15,7 +15,7 @@ class WeatherErrorWidget extends StatelessWidget {
             Icons.error,
             size: 64,
           ),
-          const Gap(),
+          const Gap(height: 16),
           Text(
             "Something went wrong",
             style: Theme.of(context).textTheme.bodyLarge,
@@ -26,7 +26,12 @@ class WeatherErrorWidget extends StatelessWidget {
           Text(
             errorMessage,
             textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                fontStyle: FontStyle.italic, fontWeight: FontWeight.normal),
           ),
+          const Gap(height: 24),
+          // Refresh Button
+          const RefreshButton()
         ],
       ),
     );

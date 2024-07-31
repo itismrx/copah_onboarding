@@ -17,8 +17,15 @@ class WeatherRemoteDataSourceImpl extends WeatherRemoteDataSource {
   @override
   Future<WeatherModel> getCurrentWeather(
       String lat, String lng, TempUnit unit) async {
-    final response = await http
-        .get(Uri.parse(Urls.currentWeatherByGeoLocation(lat, lng, unit)));
+    final response = await http.get(
+      Uri.parse(
+        Urls.currentWeatherByGeoLocation(
+          lat,
+          lng,
+          unit,
+        ),
+      ),
+    );
 
     if (response.statusCode == 200) {
       return WeatherModel.fromJson(json.decode(response.body));

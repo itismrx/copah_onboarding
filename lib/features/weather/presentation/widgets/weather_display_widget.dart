@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:coopah_onboarding/features/weather/presentation/bloc/cubit/temp_unit_cubit.dart';
-import 'package:coopah_onboarding/features/weather/presentation/bloc/weather_bloc.dart';
 import 'package:flutter/material.dart';
 
 import 'package:coopah_onboarding/core/constants/constants.dart';
@@ -104,30 +103,7 @@ class WeatherDisplayWidget extends StatelessWidget {
         const Expanded(child: SizedBox.expand()),
 
         // Refresh Button
-        Flexible(
-            child: ElevatedButton(
-          onPressed: () {
-            // Get the current unit before firiing a refetch event
-            TempUnit unit =
-                (context.read<TempUnitCubit>().state as TempUnitCurrentState)
-                    .tempUnit;
-
-            // Fire an event to refech data
-            context.read<WeatherBloc>().add(
-                  WeatherDataFetch(unit: unit),
-                );
-          },
-          style: Theme.of(context).elevatedButtonTheme.style?.copyWith(
-              minimumSize:
-                  const WidgetStatePropertyAll(Size(double.maxFinite, 52))),
-          child: Text(
-            "Refresh",
-            style: Theme.of(context)
-                .textTheme
-                .bodyMedium
-                ?.copyWith(color: AppColors.whiteColor),
-          ),
-        ))
+        const RefreshButton()
       ],
     );
   }

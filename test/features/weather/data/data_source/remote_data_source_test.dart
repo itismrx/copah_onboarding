@@ -20,7 +20,7 @@ void main() {
     weatherRemoteDataSourceImpl =
         WeatherRemoteDataSourceImpl(client: mockHttpClient);
   });
-  group("get current weather  ", () {
+  group("get current weather", () {
     test("should return weather model when status code is 200", () async {
       when(
         mockHttpClient.get(
